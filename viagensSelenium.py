@@ -5,6 +5,7 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 import telepot
 import time, sys
+from credenciais import chave,grupo
 
 options = webdriver.ChromeOptions()
 options.add_argument(r"--user-data-dir=C:\Users\Gilson Barbosa\AppData\Local\Google\Chrome\User Data\Profile 3") #e.g. 
@@ -41,12 +42,12 @@ while True:
             postagem  = '{} \n\n{}\n\n{}\n\nR$ {},00\n\n{}'.format(titulo,descricao,tipo1,preco1,link)
 
             # Bot telegram
-            chave     = '5898560730:AAGd42BUUpsMKTR_9_WZ8H2OqrZoLDEWvLk'
+            chave     = chave
             bot       = telepot.Bot(chave)
             resposta  = bot.getUpdates()
             
-            bot.sendPhoto(-847974863, imagem1)
-            bot.sendMessage(-847974863, postagem)
+            bot.sendPhoto(grupo, imagem1)
+            bot.sendMessage(grupo, postagem)
 
             time.sleep(10)
 
